@@ -15,13 +15,13 @@ export default function SplashScreen({ onDone }) {
   useEffect(() => {
     // Small tick so the initial opacity:0 is painted before we start the fade-in
     const t1 = setTimeout(() => setPhase('visible'),   100);
-    // Hold, then start fade-out
-    const t2 = setTimeout(() => setPhase('leaving'),  2200);
-    // Unmount after fade-out completes
+    // Hold, then start fade-out (extended by 1s)
+    const t2 = setTimeout(() => setPhase('leaving'),  3200);
+    // Unmount after fade-out completes (extended by 1s)
     const t3 = setTimeout(() => {
       setPhase('done');
       onDone?.();
-    }, 3200);
+    }, 4200);
 
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [onDone]);
@@ -96,7 +96,7 @@ export default function SplashScreen({ onDone }) {
           background: 'linear-gradient(90deg, transparent, #2dd4bf, transparent)',
           width: phase === 'visible' || phase === 'leaving' ? '100%' : '0%',
           transition: phase === 'visible'
-            ? 'width 1.8s cubic-bezier(0.4,0,0.2,1)'
+            ? 'width 2.8s cubic-bezier(0.4,0,0.2,1)'
             : 'none',
         }}
       />

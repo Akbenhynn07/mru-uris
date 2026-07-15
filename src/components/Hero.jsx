@@ -1,4 +1,5 @@
 import FadeInSection from './FadeInSection';
+import HeroSphere from './HeroSphere';
 
 export default function Hero() {
   return (
@@ -18,6 +19,11 @@ export default function Hero() {
         <h1 className="font-black text-[clamp(32px,6vw,72px)] leading-tight text-metallic max-w-3xl mx-auto">
           Undergraduate Research and Innovation Society
         </h1>
+      </FadeInSection>
+
+      {/* Interactive 3D Particle Sphere */}
+      <FadeInSection delay={240}>
+        <HeroSphere />
       </FadeInSection>
 
       {/* Scroll indicator */}
