@@ -86,47 +86,6 @@ export default function SplashScreen({ onDone }) {
         />
       </div>
 
-      {/* Tagline beneath logo — fades in slightly later */}
-      <div
-        style={{
-          opacity: phase === 'visible' || phase === 'leaving' ? 1 : 0,
-          transition: phase === 'visible'
-            ? 'opacity 0.8s 0.4s cubic-bezier(0.4,0,0.2,1)'
-            : 'none',
-          marginTop: '24px',
-          position: 'relative',
-          zIndex: 1,
-          textAlign: 'center',
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontSize: '12px',
-            fontWeight: 700,
-            letterSpacing: '4px',
-            textTransform: 'uppercase',
-            color: '#8a8a92',
-          }}
-        >
-          Undergraduate Research &amp; Innovation Society
-        </p>
-        <p
-          style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontSize: '11px',
-            fontWeight: 600,
-            letterSpacing: '3px',
-            textTransform: 'uppercase',
-            color: '#2dd4bf',
-            marginTop: '6px',
-            opacity: 0.85,
-          }}
-        >
-          Malla Reddy University
-        </p>
-      </div>
-
       {/* Thin teal bottom bar that grows like a loader */}
       <div
         style={{
