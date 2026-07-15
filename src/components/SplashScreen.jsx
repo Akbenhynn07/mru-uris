@@ -102,7 +102,7 @@ export default function SplashScreen({ onZoomStart, onDone }) {
           {["M", "R", "U"].map((char, index) => (
             <span
               key={`mru-${index}`}
-              className="text-white text-base sm:text-lg font-bold tracking-[8px]"
+              className="text-white text-lg sm:text-xl md:text-2xl font-bold tracking-[10px]"
               style={{
                 opacity: phase === 'entering' ? 0.12 : 1,
                 filter: phase === 'entering' ? 'none' : 'drop-shadow(0 0 6px rgba(45,212,191,0.4))',
@@ -119,7 +119,7 @@ export default function SplashScreen({ onZoomStart, onDone }) {
           {["U", "R", "I", "S"].map((char, index) => (
             <span
               key={`uris-${index}`}
-              className="font-black text-[clamp(65px,14vw,150px)] leading-none text-metallic"
+              className="font-black text-[clamp(90px,18vw,210px)] leading-none text-metallic"
               style={{
                 opacity: phase === 'entering' ? 0.12 : 1,
                 filter: phase === 'entering' ? 'brightness(0.3)' : 'brightness(1) drop-shadow(0 0 16px rgba(45,212,191,0.5))',
@@ -134,7 +134,7 @@ export default function SplashScreen({ onZoomStart, onDone }) {
 
         {/* Tagline */}
         <div 
-          className="mt-6 text-[clamp(9px,1.8vw,13px)] font-bold tracking-[3.5px] uppercase text-[#8a8a92] px-4"
+          className="mt-8 text-[clamp(11px,2.2vw,16px)] font-bold tracking-[4.5px] uppercase text-[#8a8a92] px-4"
           style={{
             opacity: phase === 'entering' ? 0 : 0.85,
             transition: 'opacity 0.6s ease 1.3s',
