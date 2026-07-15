@@ -36,7 +36,7 @@ export default function App() {
 
       {/* Main content */}
       <main className="relative z-10">
-        <Hero />
+        <Hero startAnimation={splashDone} />
         <About />
         <Leadership />
         <Coordinators />

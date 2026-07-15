@@ -1,7 +1,7 @@
 import FadeInSection from './FadeInSection';
 import HeroSphere from './HeroSphere';
 
-export default function Hero() {
+export default function Hero({ startAnimation }) {
   return (
     <section
       id="hero"
@@ -18,7 +18,7 @@ export default function Hero() {
       <div className="relative w-full max-w-5xl mx-auto flex items-center justify-center min-h-[360px] my-4">
         {/* Globe behind the text */}
         <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none overflow-hidden">
-          <HeroSphere />
+          {startAnimation && <HeroSphere />}
         </div>
 
         {/* Heading in front */}

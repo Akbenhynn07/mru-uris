@@ -160,7 +160,7 @@ export default function HeroSphere() {
     <div 
       className="flex items-center justify-center my-6 relative select-none pointer-events-none"
       style={{
-        animation: 'globePass 15s cubic-bezier(0.1, 0.85, 0.25, 1) infinite',
+        animation: 'globePass 26s linear infinite',
         width: '300px',
       }}
     >
