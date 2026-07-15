@@ -18,11 +18,11 @@ export default function SplashScreen({ onDone }) {
     // 1800ms: start the dramatic Netflix-style zoom & dissolve
     const t2 = setTimeout(() => setPhase('zooming'), 1800);
     
-    // 2900ms: animation complete, unmount splash overlay
+    // 4000ms: animation complete, unmount splash overlay (extended from 2900ms to allow 2.2s slower zoom)
     const t3 = setTimeout(() => {
       setPhase('done');
       onDone?.();
-    }, 2900);
+    }, 4000);
 
     return () => {
       clearTimeout(t1);
@@ -51,8 +51,8 @@ export default function SplashScreen({ onDone }) {
     overlayPointerEvents = 'none';
     logoScale = 22.0; // Dramatic zoom past viewport boundary
     logoOpacity = 0; // Dissolve to transparent as it gets close
-    logoTransition = 'transform 1.1s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.7s cubic-bezier(0.7, 0, 0.3, 1)';
-    overlayTransition = 'opacity 1.0s cubic-bezier(0.7, 0, 0.3, 1)';
+    logoTransition = 'transform 2.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1)';
+    overlayTransition = 'opacity 2.2s cubic-bezier(0.4, 0, 0.2, 1)';
   }
 
   return (
