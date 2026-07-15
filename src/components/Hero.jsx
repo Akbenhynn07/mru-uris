@@ -14,18 +14,18 @@ export default function Hero() {
         </p>
       </FadeInSection>
 
-      {/* Interactive 3D Particle Sphere */}
+      {/* Undergraduate Research & Innovative Society */}
       <FadeInSection delay={120}>
-        <HeroSphere />
-      </FadeInSection>
-
-      {/* Undergraduate Research & Innovation Society */}
-      <FadeInSection delay={240}>
         <h1 className="font-black text-[clamp(32px,6vw,72px)] leading-tight text-metallic max-w-4xl mx-auto flex flex-col items-center">
           <span className="block">Undergraduate Research</span>
           <span className="block text-[#2dd4bf] my-1 font-semibold">&amp;</span>
-          <span className="block">Innovation Society</span>
+          <span className="block">Innovative Society</span>
         </h1>
+      </FadeInSection>
+
+      {/* Interactive 3D Particle Sphere (below the headings) */}
+      <FadeInSection delay={240}>
+        <HeroSphere />
       </FadeInSection>
 
       {/* Scroll indicator */}

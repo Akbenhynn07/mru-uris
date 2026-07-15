@@ -157,7 +157,31 @@ export default function HeroSphere() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center my-6 relative select-none pointer-events-none">
+    <div 
+      className="flex items-center justify-center my-6 relative select-none pointer-events-none"
+      style={{
+        animation: 'globePass 26s linear infinite',
+        width: '300px',
+      }}
+    >
+      <style>{`
+        @keyframes globePass {
+          0% {
+            transform: translateX(-60vw);
+            opacity: 0;
+          }
+          12% {
+            opacity: 0.95;
+          }
+          88% {
+            opacity: 0.95;
+          }
+          100% {
+            transform: translateX(60vw);
+            opacity: 0;
+          }
+        }
+      `}</style>
       {/* Background glow beneath the canvas */}
       <div 
         className="absolute w-44 h-44 rounded-full bg-[#2dd4bf] opacity-[0.03] blur-3xl pointer-events-none"
