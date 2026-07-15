@@ -3,7 +3,7 @@ import FadeInSection from './FadeInSection';
 const socials = [
   {
     label: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/mru.uris/',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
