@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0a0a0d;
+  color: #ffffff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b2b32;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2dd4bf;
+}
+
+/* Metallic gradient text */
+.text-metallic {
+  background: linear-gradient(135deg, #ffffff 0%, #d7d9de 45%, #9a9ea8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Teal accent text */
+.text-teal-accent {
+  color: #2dd4bf;
+}
+
+/* Button gradient */
+.btn-gradient {
+  background: linear-gradient(135deg, #ffffff, #2dd4bf);
+  color: #0a0a0d;
+  font-weight: 700;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #e0fffe, #2dd4bf);
+  transform: translateY(-1px);
+}
+
+/* Pill border button */
+.btn-outline {
+  border: 1px solid #2b2b32;
+  color: #ffffff;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+  border-color: #2dd4bf;
+  color: #2dd4bf;
+}
+
+/* Section divider */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #1c1c22 30%, #2b2b32 50%, #1c1c22 70%, transparent 100%);
+}
+
+/* Constellation canvas background */
+.constellation-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glow dot */
+.glow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2dd4bf;
+  box-shadow: 0 0 8px 2px rgba(45, 212, 191, 0.5);
+  display: inline-block;
+}
+
+/* Card hover */
+.card-hover {
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.card-hover:hover {
+  border-color: #2dd4bf !important;
+  transform: translateY(-3px);
+}
+
+/* Fade-in animation classes */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Vertical divider */
+.v-divider {
+  width: 1px;
+  background: #2b2b32;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+/* Teal glow line */
+.teal-underline {
+  position: relative;
+}
+.teal-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: #2dd4bf;
+  border-radius: 1px;
+}
+
+/* Number step circle */
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #2dd4bf;
+  color: #2dd4bf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #a3a3ab;
+}
+
+/* Radial background glow */
+.bg-radial-glow {
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, #14141c 0%, #0a0a0d 65%);
+}
