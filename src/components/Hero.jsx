@@ -20,25 +20,14 @@ export default function Hero() {
         <p className="text-[#8a8a92] text-sm italic font-semibold mb-6 tracking-wide">presents</p>
       </FadeInSection>
 
-      {/* Wordmark */}
+      {/* Society name — large hero heading */}
       <FadeInSection delay={160}>
-        <div className="mb-4">
-          <img
-            src="/uris-logo.jpg"
-            alt="MRU-URIS Logo"
-            className="w-full max-w-[min(85vw,680px)] mx-auto select-none"
-            style={{ mixBlendMode: 'lighten' }}
-            draggable={false}
-          />
-        </div>
+        <h1 className="font-extrabold text-[clamp(22px,3.8vw,44px)] leading-tight text-metallic max-w-3xl mx-auto mb-6 px-2">
+          Malla Reddy University's Undergraduate Research and Innovation Society
+        </h1>
       </FadeInSection>
 
-      {/* Society name */}
-      <FadeInSection delay={220}>
-        <p className="text-[#a3a3ab] text-sm sm:text-base max-w-lg mx-auto mb-8 leading-relaxed">
-          Malla Reddy University's Undergraduate Research and Innovation Society
-        </p>
-      </FadeInSection>
+
 
       {/* Recruitment headline */}
       <FadeInSection delay={300}>
