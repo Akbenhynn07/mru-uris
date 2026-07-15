@@ -14,19 +14,22 @@ export default function Hero() {
         </p>
       </FadeInSection>
 
-      {/* Undergraduate Research & Innovative Society */}
-      <FadeInSection delay={120}>
-        <h1 className="font-black text-[clamp(32px,6vw,72px)] leading-tight text-metallic max-w-4xl mx-auto flex flex-col items-center">
-          <span className="block">Undergraduate Research</span>
-          <span className="block text-[#2dd4bf] my-1 font-semibold">&amp;</span>
-          <span className="block">Innovative Society</span>
-        </h1>
-      </FadeInSection>
+      {/* Title & Globe Wrapper */}
+      <div className="relative w-full max-w-5xl mx-auto flex items-center justify-center min-h-[360px] my-4">
+        {/* Globe behind the text */}
+        <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none overflow-hidden">
+          <HeroSphere />
+        </div>
 
-      {/* Interactive 3D Particle Sphere (below the headings) */}
-      <FadeInSection delay={240}>
-        <HeroSphere />
-      </FadeInSection>
+        {/* Heading in front */}
+        <FadeInSection delay={120} className="relative z-10 pointer-events-none">
+          <h1 className="font-black text-[clamp(32px,6vw,72px)] leading-tight text-metallic flex flex-col items-center">
+            <span className="block">Undergraduate Research</span>
+            <span className="block text-[#2dd4bf] my-1 font-semibold">&amp;</span>
+            <span className="block">Innovative Society</span>
+          </h1>
+        </FadeInSection>
+      </div>
 
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
