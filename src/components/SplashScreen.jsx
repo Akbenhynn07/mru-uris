@@ -15,17 +15,17 @@ export default function SplashScreen({ onZoomStart, onDone }) {
     // 100ms: trigger fade-in of logo
     const t1 = setTimeout(() => setPhase('visible'), 100);
     
-    // 1800ms: start the dramatic Netflix-style zoom & dissolve
+    // 2400ms: start the dramatic Netflix-style zoom & dissolve (extended from 1800ms)
     const t2 = setTimeout(() => {
       setPhase('zooming');
       onZoomStart?.(); // Start globe animation immediately as zoom begins
-    }, 1800);
+    }, 2400);
     
-    // 4000ms: animation complete, unmount splash overlay (extended from 2900ms to allow 2.2s slower zoom)
+    // 4600ms: animation complete, unmount splash overlay (extended from 4000ms to allow 2.2s slower zoom after 2400ms start)
     const t3 = setTimeout(() => {
       setPhase('done');
       onDone?.(); // Unmount overlay only after zoom animation fully finishes
-    }, 4000);
+    }, 4600);
 
     return () => {
       clearTimeout(t1);
@@ -106,7 +106,7 @@ export default function SplashScreen({ onZoomStart, onDone }) {
               style={{
                 opacity: phase === 'entering' ? 0.12 : 1,
                 filter: phase === 'entering' ? 'none' : 'drop-shadow(0 0 6px rgba(45,212,191,0.4))',
-                transition: `all 0.3s cubic-bezier(0.25, 1, 0.5, 1) ${index * 0.08}s`,
+                transition: `all 0.3s cubic-bezier(0.25, 1, 0.5, 1) ${index * 0.15}s`,
               }}
             >
               {char}
@@ -123,7 +123,7 @@ export default function SplashScreen({ onZoomStart, onDone }) {
               style={{
                 opacity: phase === 'entering' ? 0.12 : 1,
                 filter: phase === 'entering' ? 'brightness(0.3)' : 'brightness(1) drop-shadow(0 0 16px rgba(45,212,191,0.5))',
-                transition: `all 0.4s cubic-bezier(0.25, 1, 0.5, 1) ${(index + 3) * 0.09}s`,
+                transition: `all 0.4s cubic-bezier(0.25, 1, 0.5, 1) ${(index * 0.18 + 0.45)}s`,
                 display: 'inline-block',
               }}
             >
@@ -137,7 +137,7 @@ export default function SplashScreen({ onZoomStart, onDone }) {
           className="mt-6 text-[clamp(9px,1.8vw,13px)] font-bold tracking-[3.5px] uppercase text-[#8a8a92] px-4"
           style={{
             opacity: phase === 'entering' ? 0 : 0.85,
-            transition: 'opacity 0.6s ease 0.9s',
+            transition: 'opacity 0.6s ease 1.3s',
           }}
         >
           Undergraduate Research &amp; Innovation Society
