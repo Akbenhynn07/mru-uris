@@ -167,17 +167,17 @@ export default function HeroSphere() {
       <style>{`
         @keyframes globePass {
           0% {
-            transform: translateX(-60vw);
+            transform: translateX(-45vw);
             opacity: 0;
           }
-          12% {
+          4% {
             opacity: 0.95;
           }
-          88% {
+          92% {
             opacity: 0.95;
           }
           100% {
-            transform: translateX(60vw);
+            transform: translateX(55vw);
             opacity: 0;
           }
         }
