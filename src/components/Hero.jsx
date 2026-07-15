@@ -26,7 +26,7 @@ export default function Hero({ startAnimation }) {
           <h1 className="font-black text-[clamp(32px,6vw,72px)] leading-tight text-metallic flex flex-col items-center">
             <span className="block">Undergraduate Research</span>
             <span className="block text-[#2dd4bf] my-1 font-semibold">&amp;</span>
-            <span className="block">Innovative Society</span>
+            <span className="block">Innovation Society</span>
           </h1>
         </FadeInSection>
       </div>
