@@ -8,7 +8,7 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onApply }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -54,12 +54,12 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center">
-          <a
-            href="#contact"
+          <button
+            onClick={onApply}
             className="btn-gradient px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 hover:scale-105 hover:shadow-[0_0_20px_rgba(45,212,191,0.3)]"
           >
             Apply Now →
-          </a>
+          </button>
         </div>
 
         {/* Mobile hamburger */}
@@ -97,13 +97,15 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            className="btn-gradient px-5 py-2.5 rounded-full text-sm font-bold text-center mt-2"
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              onApply();
+            }}
+            className="btn-gradient px-5 py-2.5 rounded-full text-sm font-bold text-center mt-2 w-full"
           >
             Apply Now →
-          </a>
+          </button>
         </div>
       </div>
     </nav>

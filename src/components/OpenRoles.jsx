@@ -54,7 +54,7 @@ const tagColors = {
   Management: 'text-indigo-400 border-indigo-400/30 bg-indigo-400/5',
 };
 
-export default function OpenRoles() {
+export default function OpenRoles({ onApply }) {
   return (
     <section id="roles" className="relative z-10 py-28 px-6">
       <div className="section-divider mb-28" />
@@ -115,12 +115,12 @@ export default function OpenRoles() {
             <p className="text-[#8a8a92] text-sm mb-5">
               Don't see a perfect fit? We encourage you to apply with your unique skillset.
             </p>
-            <a
-              href="#contact"
+            <button
+              onClick={onApply}
               className="btn-gradient px-8 py-3.5 rounded-full text-sm font-bold inline-block transition-all duration-200 hover:scale-105 hover:shadow-[0_0_25px_rgba(45,212,191,0.35)]"
             >
               Apply for a Position →
-            </a>
+            </button>
           </div>
         </FadeInSection>
       </div>

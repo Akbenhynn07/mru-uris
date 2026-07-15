@@ -9,10 +9,12 @@ import OpenRoles from './components/OpenRoles';
 import Timeline from './components/Timeline';
 import Footer from './components/Footer';
 import SplashScreen from './components/SplashScreen';
+import ApplyModal from './components/ApplyModal';
 
 export default function App() {
   const [splashDone, setSplashDone] = useState(false);
   const [animationStarted, setAnimationStarted] = useState(false);
+  const [isApplyOpen, setIsApplyOpen] = useState(false);
 
   const handleZoomStart = useCallback(() => {
     setAnimationStarted(true);
@@ -20,6 +22,14 @@ export default function App() {
 
   const handleDone = useCallback(() => {
     setSplashDone(true);
+  }, []);
+
+  const handleOpenApply = useCallback(() => {
+    setIsApplyOpen(true);
+  }, []);
+
+  const handleCloseApply = useCallback(() => {
+    setIsApplyOpen(false);
   }, []);
 
   // Lock scroll while splash is showing
@@ -42,11 +52,14 @@ export default function App() {
         />
       )}
 
+      {/* Embedded application modal overlay */}
+      <ApplyModal isOpen={isApplyOpen} onClose={handleCloseApply} />
+
       {/* Fixed constellation background */}
       <ConstellationBg />
 
       {/* Sticky navbar */}
-      <Navbar />
+      <Navbar onApply={handleOpenApply} />
 
       {/* Main content */}
       <main className="relative z-10">
@@ -54,9 +67,9 @@ export default function App() {
         <About />
         <Leadership />
         <Coordinators />
-        <OpenRoles />
+        <OpenRoles onApply={handleOpenApply} />
         <Timeline />
-        <Footer />
+        <Footer onApply={handleOpenApply} />
       </main>
     </div>
   );

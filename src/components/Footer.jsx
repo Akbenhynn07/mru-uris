@@ -35,7 +35,7 @@ const socials = [
   },
 ];
 
-export default function Footer() {
+export default function Footer({ onApply }) {
   return (
     <footer id="contact" className="relative z-10 pt-28 pb-12 px-6">
       <div className="section-divider mb-20" />
@@ -57,12 +57,12 @@ export default function Footer() {
           <p className="text-[#a3a3ab] text-base max-w-lg mx-auto mb-10 leading-relaxed">
             Applications are open now. Join the founding board of MRU-URIS and help build something lasting at Malla Reddy University.
           </p>
-          <a
-            href="mailto:uris@mallareddyuniversity.ac.in"
+          <button
+            onClick={onApply}
             className="btn-gradient px-10 py-4 rounded-full text-base font-bold inline-block transition-all duration-200 hover:scale-105 hover:shadow-[0_0_35px_rgba(45,212,191,0.4)]"
           >
             Apply Now →
-          </a>
+          </button>
         </div>
       </FadeInSection>
 
