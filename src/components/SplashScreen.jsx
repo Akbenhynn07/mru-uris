@@ -16,12 +16,14 @@ export default function SplashScreen({ onDone }) {
     const t1 = setTimeout(() => setPhase('visible'), 100);
     
     // 1800ms: start the dramatic Netflix-style zoom & dissolve
-    const t2 = setTimeout(() => setPhase('zooming'), 1800);
+    const t2 = setTimeout(() => {
+      setPhase('zooming');
+      onDone?.(); // Mount the main page components (globe) immediately as the zoom starts!
+    }, 1800);
     
     // 4000ms: animation complete, unmount splash overlay (extended from 2900ms to allow 2.2s slower zoom)
     const t3 = setTimeout(() => {
       setPhase('done');
-      onDone?.();
     }, 4000);
 
     return () => {
