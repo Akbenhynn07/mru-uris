@@ -22,9 +22,15 @@ export default function Hero() {
 
       {/* Wordmark */}
       <FadeInSection delay={160}>
-        <h1 className="font-black text-[clamp(80px,18vw,200px)] leading-none tracking-tighter text-metallic select-none mb-4">
-          MRU-URIS
-        </h1>
+        <div className="mb-4">
+          <img
+            src="/uris-logo.jpg"
+            alt="MRU-URIS Logo"
+            className="w-full max-w-[min(85vw,680px)] mx-auto select-none"
+            style={{ mixBlendMode: 'lighten' }}
+            draggable={false}
+          />
+        </div>
       </FadeInSection>
 
       {/* Society name */}

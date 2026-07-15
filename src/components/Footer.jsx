@@ -73,7 +73,13 @@ export default function Footer() {
 
             {/* Brand */}
             <div className="text-center sm:text-left">
-              <div className="text-metallic font-black text-2xl mb-1">MRU-URIS</div>
+              <img
+                src="/uris-logo.jpg"
+                alt="MRU-URIS"
+                className="h-12 w-auto mb-2"
+                style={{ mixBlendMode: 'lighten' }}
+                draggable={false}
+              />
               <div className="text-[#8a8a92] text-xs tracking-wide">
                 Undergraduate Research &amp; Innovation Society<br />
                 Malla Reddy University, Hyderabad

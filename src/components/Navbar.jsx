@@ -29,7 +29,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2 group">
-          <span className="text-metallic font-black text-xl tracking-tight">MRU-URIS</span>
+          <img
+            src="/uris-logo.jpg"
+            alt="MRU-URIS"
+            className="h-8 w-auto select-none"
+            style={{ mixBlendMode: 'lighten' }}
+            draggable={false}
+          />
           <span className="text-[#2dd4bf] text-xs font-bold tracking-widest hidden sm:block">'26</span>
         </a>
 
