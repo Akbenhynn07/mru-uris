@@ -1,32 +1,59 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Splash screen animation sequence:
- * 0.0s — overlay mounts (black, logo invisible)
- * 0.1s — logo fades IN  (0.8s ease)
- * 1.4s — logo holds
- * 2.2s — entire overlay fades OUT (0.9s ease)
- * 3.1s — component unmounts, site fully visible
+ * Netflix-style Intro Animation:
+ * 1. Logo fades and gently scales in.
+ * 2. Pause/hold.
+ * 3. Logo zooms in dramatically (scale to 20x) and dissolves as it passes the screen,
+ *    while the black background overlay dissolves to reveal the website content beneath.
  */
 export default function SplashScreen({ onDone }) {
-  // 'entering' | 'visible' | 'leaving' | 'done'
+  // 'entering' | 'visible' | 'zooming' | 'done'
   const [phase, setPhase] = useState('entering');
 
   useEffect(() => {
-    // Small tick so the initial opacity:0 is painted before we start the fade-in
-    const t1 = setTimeout(() => setPhase('visible'),   100);
-    // Hold, then start fade-out (extended by 1s)
-    const t2 = setTimeout(() => setPhase('leaving'),  3200);
-    // Unmount after fade-out completes (extended by 1s)
+    // 100ms: trigger fade-in of logo
+    const t1 = setTimeout(() => setPhase('visible'), 100);
+    
+    // 1800ms: start the dramatic Netflix-style zoom & dissolve
+    const t2 = setTimeout(() => setPhase('zooming'), 1800);
+    
+    // 2900ms: animation complete, unmount splash overlay
     const t3 = setTimeout(() => {
       setPhase('done');
       onDone?.();
-    }, 4200);
+    }, 2900);
 
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+    };
   }, [onDone]);
 
   if (phase === 'done') return null;
+
+  // Animation values calculated based on current phase
+  let overlayOpacity = 1;
+  let overlayPointerEvents = 'all';
+  let logoScale = 0.85;
+  let logoOpacity = 0;
+  let logoTransition = 'none';
+  let overlayTransition = 'none';
+
+  if (phase === 'visible') {
+    overlayOpacity = 1;
+    logoScale = 1.0;
+    logoOpacity = 1;
+    logoTransition = 'opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+  } else if (phase === 'zooming') {
+    overlayOpacity = 0;
+    overlayPointerEvents = 'none';
+    logoScale = 22.0; // Dramatic zoom past viewport boundary
+    logoOpacity = 0; // Dissolve to transparent as it gets close
+    logoTransition = 'transform 1.1s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.7s cubic-bezier(0.7, 0, 0.3, 1)';
+    overlayTransition = 'opacity 1.0s cubic-bezier(0.7, 0, 0.3, 1)';
+  }
 
   return (
     <div
@@ -39,37 +66,32 @@ export default function SplashScreen({ onDone }) {
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
-        // Overlay fade-out
-        opacity: phase === 'leaving' ? 0 : 1,
-        transition: phase === 'leaving'
-          ? 'opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1)'
-          : 'none',
-        pointerEvents: phase === 'leaving' ? 'none' : 'all',
+        opacity: overlayOpacity,
+        transition: overlayTransition,
+        pointerEvents: overlayPointerEvents,
+        overflow: 'hidden', // Prevent zoom scale from causing horizontal/vertical scrolls
       }}
     >
-      {/* Subtle radial glow behind the logo */}
+      {/* Subtle background glow */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           background:
-            'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(45,212,191,0.05) 0%, transparent 70%)',
+            'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(45,212,191,0.03) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
 
-      {/* Logo image */}
+      {/* Logo container */}
       <div
         style={{
-          opacity: phase === 'visible' || phase === 'leaving' ? 1 : 0,
-          transform: phase === 'visible' || phase === 'leaving'
-            ? 'scale(1) translateY(0)'
-            : 'scale(0.92) translateY(16px)',
-          transition: phase === 'visible'
-            ? 'opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1)'
-            : 'none',
+          opacity: logoOpacity,
+          transform: `scale(${logoScale})`,
+          transition: logoTransition,
           position: 'relative',
           zIndex: 1,
+          transformOrigin: 'center center',
         }}
       >
         <img
@@ -85,21 +107,6 @@ export default function SplashScreen({ onDone }) {
           draggable={false}
         />
       </div>
-
-      {/* Thin teal bottom bar that grows like a loader */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          height: '2px',
-          background: 'linear-gradient(90deg, transparent, #2dd4bf, transparent)',
-          width: phase === 'visible' || phase === 'leaving' ? '100%' : '0%',
-          transition: phase === 'visible'
-            ? 'width 2.8s cubic-bezier(0.4,0,0.2,1)'
-            : 'none',
-        }}
-      />
     </div>
   );
 }
