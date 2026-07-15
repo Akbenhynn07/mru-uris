@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import ConstellationBg from './components/ConstellationBg';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -13,6 +13,14 @@ import SplashScreen from './components/SplashScreen';
 export default function App() {
   const [splashDone, setSplashDone] = useState(false);
   const [animationStarted, setAnimationStarted] = useState(false);
+
+  const handleZoomStart = useCallback(() => {
+    setAnimationStarted(true);
+  }, []);
+
+  const handleDone = useCallback(() => {
+    setSplashDone(true);
+  }, []);
 
   // Lock scroll while splash is showing
   useEffect(() => {
@@ -29,8 +37,8 @@ export default function App() {
       {/* Splash overlay — sits above everything until dismissed */}
       {!splashDone && (
         <SplashScreen 
-          onZoomStart={() => setAnimationStarted(true)} 
-          onDone={() => setSplashDone(true)} 
+          onZoomStart={handleZoomStart} 
+          onDone={handleDone} 
         />
       )}
 

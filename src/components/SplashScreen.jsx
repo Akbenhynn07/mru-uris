@@ -32,7 +32,7 @@ export default function SplashScreen({ onZoomStart, onDone }) {
       clearTimeout(t2);
       clearTimeout(t3);
     };
-  }, [onZoomStart, onDone]);
+  }, []);
 
   if (phase === 'done') return null;
 
