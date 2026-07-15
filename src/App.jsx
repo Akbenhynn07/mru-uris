@@ -12,6 +12,7 @@ import SplashScreen from './components/SplashScreen';
 
 export default function App() {
   const [splashDone, setSplashDone] = useState(false);
+  const [animationStarted, setAnimationStarted] = useState(false);
 
   // Lock scroll while splash is showing
   useEffect(() => {
@@ -26,7 +27,12 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-[#0a0a0d] text-white font-poppins overflow-x-hidden">
       {/* Splash overlay — sits above everything until dismissed */}
-      {!splashDone && <SplashScreen onDone={() => setSplashDone(true)} />}
+      {!splashDone && (
+        <SplashScreen 
+          onZoomStart={() => setAnimationStarted(true)} 
+          onDone={() => setSplashDone(true)} 
+        />
+      )}
 
       {/* Fixed constellation background */}
       <ConstellationBg />
@@ -36,7 +42,7 @@ export default function App() {
 
       {/* Main content */}
       <main className="relative z-10">
-        <Hero startAnimation={splashDone} />
+        <Hero startAnimation={animationStarted} />
         <About />
         <Leadership />
         <Coordinators />

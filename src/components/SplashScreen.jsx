@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
  * 3. Logo zooms in dramatically (scale to 20x) and dissolves as it passes the screen,
  *    while the black background overlay dissolves to reveal the website content beneath.
  */
-export default function SplashScreen({ onDone }) {
+export default function SplashScreen({ onZoomStart, onDone }) {
   // 'entering' | 'visible' | 'zooming' | 'done'
   const [phase, setPhase] = useState('entering');
 
@@ -18,12 +18,13 @@ export default function SplashScreen({ onDone }) {
     // 1800ms: start the dramatic Netflix-style zoom & dissolve
     const t2 = setTimeout(() => {
       setPhase('zooming');
-      onDone?.(); // Mount the main page components (globe) immediately as the zoom starts!
+      onZoomStart?.(); // Start globe animation immediately as zoom begins
     }, 1800);
     
     // 4000ms: animation complete, unmount splash overlay (extended from 2900ms to allow 2.2s slower zoom)
     const t3 = setTimeout(() => {
       setPhase('done');
+      onDone?.(); // Unmount overlay only after zoom animation fully finishes
     }, 4000);
 
     return () => {
@@ -31,7 +32,7 @@ export default function SplashScreen({ onDone }) {
       clearTimeout(t2);
       clearTimeout(t3);
     };
-  }, [onDone]);
+  }, [onZoomStart, onDone]);
 
   if (phase === 'done') return null;
 
