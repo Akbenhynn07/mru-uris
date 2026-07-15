@@ -86,29 +86,62 @@ export default function SplashScreen({ onZoomStart, onDone }) {
         }}
       />
 
-      {/* Logo container */}
-      <div
+      {/* Recreated Logo in HTML/CSS for letter-by-letter highlight animation */}
+      <div 
+        className="flex flex-col items-center select-none relative z-10 font-poppins text-center"
         style={{
           opacity: logoOpacity,
           transform: `scale(${logoScale})`,
           transition: logoTransition,
           position: 'relative',
-          zIndex: 1,
           transformOrigin: 'center center',
         }}
       >
-        <img
-          src="/uris-logo.jpg"
-          alt="MRU-URIS"
+        {/* MRU text */}
+        <div className="flex justify-center mb-1 pl-[6px]">
+          {["M", "R", "U"].map((char, index) => (
+            <span
+              key={`mru-${index}`}
+              className="text-white text-base sm:text-lg font-bold tracking-[8px]"
+              style={{
+                opacity: phase === 'entering' ? 0.12 : 1,
+                filter: phase === 'entering' ? 'none' : 'drop-shadow(0 0 6px rgba(45,212,191,0.4))',
+                transition: `all 0.3s cubic-bezier(0.25, 1, 0.5, 1) ${index * 0.08}s`,
+              }}
+            >
+              {char}
+            </span>
+          ))}
+        </div>
+
+        {/* URIS text - massive */}
+        <div className="flex justify-center -space-x-1 sm:-space-x-2">
+          {["U", "R", "I", "S"].map((char, index) => (
+            <span
+              key={`uris-${index}`}
+              className="font-black text-[clamp(65px,14vw,150px)] leading-none text-metallic"
+              style={{
+                opacity: phase === 'entering' ? 0.12 : 1,
+                filter: phase === 'entering' ? 'brightness(0.3)' : 'brightness(1) drop-shadow(0 0 16px rgba(45,212,191,0.5))',
+                transition: `all 0.4s cubic-bezier(0.25, 1, 0.5, 1) ${(index + 3) * 0.09}s`,
+                display: 'inline-block',
+              }}
+            >
+              {char}
+            </span>
+          ))}
+        </div>
+
+        {/* Tagline */}
+        <div 
+          className="mt-6 text-[clamp(9px,1.8vw,13px)] font-bold tracking-[3.5px] uppercase text-[#8a8a92] px-4"
           style={{
-            width: 'min(75vw, 560px)',
-            height: 'auto',
-            mixBlendMode: 'lighten',
-            userSelect: 'none',
-            pointerEvents: 'none',
+            opacity: phase === 'entering' ? 0 : 0.85,
+            transition: 'opacity 0.6s ease 0.9s',
           }}
-          draggable={false}
-        />
+        >
+          Undergraduate Research &amp; Innovation Society
+        </div>
       </div>
     </div>
   );
