@@ -19,10 +19,12 @@ export default function Hero() {
         <HeroSphere />
       </FadeInSection>
 
-      {/* Undergraduate Research and Innovation Society */}
+      {/* Undergraduate Research & Innovation Society */}
       <FadeInSection delay={240}>
-        <h1 className="font-black text-[clamp(32px,6vw,72px)] leading-tight text-metallic max-w-3xl mx-auto">
-          Undergraduate Research and Innovation Society
+        <h1 className="font-black text-[clamp(32px,6vw,72px)] leading-tight text-metallic max-w-4xl mx-auto flex flex-col items-center">
+          <span className="block">Undergraduate Research</span>
+          <span className="block text-[#2dd4bf] my-1 font-semibold">&amp;</span>
+          <span className="block">Innovation Society</span>
         </h1>
       </FadeInSection>
 
