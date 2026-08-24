@@ -7,6 +7,7 @@ import Leadership from './components/Leadership';
 import Coordinators from './components/Coordinators';
 import OpenRoles from './components/OpenRoles';
 import Timeline from './components/Timeline';
+import Partners from './components/Partners';
 import Footer from './components/Footer';
 import SplashScreen from './components/SplashScreen';
 import ApplyModal from './components/ApplyModal';
@@ -69,6 +70,7 @@ export default function App() {
         <Coordinators />
         <OpenRoles onApply={handleOpenApply} />
         <Timeline />
+        <Partners />
         <Footer onApply={handleOpenApply} />
       </main>
     </div>
