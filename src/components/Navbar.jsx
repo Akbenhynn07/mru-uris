@@ -4,7 +4,7 @@ const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Leadership', href: '#leadership' },
   { label: 'Roles', href: '#roles' },
-  { label: 'Timeline', href: '#timeline' },
+  { label: 'Roadmap', href: '#timeline' },
   { label: 'Contact', href: '#contact' },
 ];
 
