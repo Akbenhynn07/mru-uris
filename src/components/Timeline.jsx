@@ -132,7 +132,10 @@ export default function Timeline() {
   };
 
   return (
-    <section id="timeline" className="relative z-10 py-32 px-6 overflow-hidden">
+    <section id="roadmap" className="relative z-10 py-32 px-6 overflow-hidden">
+      {/* Anchor targets for backward compatibility */}
+      <span id="timeline" className="absolute -top-24 pointer-events-none" />
+      <span id="about" className="absolute -top-24 pointer-events-none" />
       {/* Background Ambient Glows */}
       <div 
         className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[140px] pointer-events-none -z-10"

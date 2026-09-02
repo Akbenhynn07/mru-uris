@@ -65,11 +65,10 @@ export default function App() {
       {/* Main content */}
       <main className="relative z-10">
         <Hero startAnimation={animationStarted} />
-        <About />
+        <Timeline />
         <Leadership />
         <Coordinators />
         <OpenRoles onApply={handleOpenApply} />
-        <Timeline />
         <Partners />
         <Footer onApply={handleOpenApply} />
       </main>

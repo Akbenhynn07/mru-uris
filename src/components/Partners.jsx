@@ -7,24 +7,11 @@ const partners = [
     tagline: 'Advancing Technology for Humanity',
     href: 'https://www.ieee.org/',
     logo: (
-      <svg viewBox="0 0 320 140" className="h-16 sm:h-20 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Diamond shape */}
-        <g transform="translate(20, 5)">
-          <path d="M45 0 L90 45 L45 90 L0 45 Z" fill="none" stroke="#0076A8" strokeWidth="4"/>
-          <circle cx="45" cy="45" r="28" fill="none" stroke="#0076A8" strokeWidth="3"/>
-          {/* Arrow/antenna inside circle */}
-          <line x1="45" y1="22" x2="45" y2="68" stroke="#0076A8" strokeWidth="3"/>
-          <polygon points="45,18 39,28 51,28" fill="#0076A8"/>
-          <line x1="35" y1="40" x2="55" y2="40" stroke="#0076A8" strokeWidth="2"/>
-          <line x1="37" y1="48" x2="53" y2="48" stroke="#0076A8" strokeWidth="2"/>
-          <circle cx="45" cy="62" r="4" fill="#0076A8"/>
-        </g>
-        {/* IEEE Text */}
-        <text x="125" y="55" fontFamily="'Poppins', sans-serif" fontWeight="900" fontSize="50" fill="#0076A8" letterSpacing="2">IEEE</text>
-        {/* Tagline */}
-        <text x="125" y="80" fontFamily="'Poppins', sans-serif" fontWeight="400" fontStyle="italic" fontSize="13" fill="#0076A8" letterSpacing="0.5">Advancing Technology</text>
-        <text x="125" y="96" fontFamily="'Poppins', sans-serif" fontWeight="400" fontStyle="italic" fontSize="13" fill="#0076A8" letterSpacing="0.5">for Humanity</text>
-      </svg>
+      <img 
+        src="/ieee-partner.png" 
+        alt="IEEE - Advancing Technology for Humanity" 
+        className="h-14 sm:h-16 w-auto object-contain select-none"
+      />
     ),
   },
   {
@@ -33,26 +20,11 @@ const partners = [
     tagline: 'Advancing Computing as a Science & Profession',
     href: 'https://www.acm.org/',
     logo: (
-      <svg viewBox="0 0 380 110" className="h-16 sm:h-20 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Diamond shape */}
-        <g transform="translate(5, 5)">
-          <path d="M50 0 L100 50 L50 100 L0 50 Z" fill="url(#acm-gradient)" />
-          <defs>
-            <linearGradient id="acm-gradient" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#46BDE8"/>
-              <stop offset="100%" stopColor="#0090C4"/>
-            </linearGradient>
-          </defs>
-          {/* Circle inside diamond */}
-          <circle cx="50" cy="50" r="32" fill="none" stroke="white" strokeWidth="3.5" opacity="0.9"/>
-          {/* ACM text inside circle */}
-          <text x="50" y="58" fontFamily="'Poppins', sans-serif" fontWeight="800" fontSize="26" fill="white" textAnchor="middle" letterSpacing="1">acm</text>
-        </g>
-        {/* Association text */}
-        <text x="120" y="38" fontFamily="'Poppins', sans-serif" fontWeight="700" fontSize="24" fill="#4A4A4A" className="dark-text">Association for</text>
-        <text x="120" y="65" fontFamily="'Poppins', sans-serif" fontWeight="700" fontSize="24" fill="#4A4A4A" className="dark-text">Computing</text>
-        <text x="120" y="92" fontFamily="'Poppins', sans-serif" fontWeight="700" fontSize="24" fill="#4A4A4A" className="dark-text">Machinery</text>
-      </svg>
+      <img 
+        src="/acm-partner.png" 
+        alt="Association for Computing Machinery" 
+        className="h-14 sm:h-16 w-auto object-contain select-none"
+      />
     ),
   },
 ];
